@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>HYROX Doubles — Roos & Fleur — Weekschema</title>
+<meta name="description" content="12-weken trainingsschema voor Roos & Fleur richting HYROX Doubles, 29 november 2026.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#211F1B">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/icon-180-apple.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HYROX Schema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F4EC;
+    --surface:#FFFFFF;
+    --ink:#211F1B;
+    --ink-soft:#65604F;
+    --line:#DEDACB;
+    --tape:#EAE3C8;
+    --run:#1D5FA6;
+    --run-bg:#E7F0FA;
+    --hyroxnorun:#C1560B;
+    --hyroxnorun-bg:#FBEEE3;
+    --strength:#6B3FA0;
+    --strength-bg:#F1EAF8;
+    --hyroxrun:#C21F1F;
+    --hyroxrun-bg:#FBE9E9;
+    --bike:#1E7D46;
+    --bike-bg:#E8F5EC;
+    --rest:#8B8677;
+    --rest-bg:#F0EEE7;
+    --race:#B5862C;
+    --race-bg:#1C1A16;
+    --radius:3px;
+    --shadow:0 1px 2px rgba(33,31,27,0.06), 0 1px 1px rgba(33,31,27,0.04);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;} }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(33,31,27,0.05) 1px, transparent 0);
+    background-size:22px 22px;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:60px;
+  }
+
+  a{color:inherit;}
+
+  .site-header{
+    padding:22px 16px 14px;
+    max-width:760px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 6px;
+  }
+  h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    font-size:clamp(26px, 6vw, 38px);
+    margin:0 0 4px;
+    line-height:1.05;
+  }
+  .subtitle{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+  }
+
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 14px;
+    padding:12px 12px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+  }
+  .legend-item{display:flex; align-items:center; gap:6px; white-space:nowrap;}
+  .dot{width:9px; height:9px; border-radius:50%; flex:none;}
+
+  .weeknav-wrap{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--bg);
+    padding:10px 0 8px;
+    border-bottom:1px solid var(--line);
+  }
+  .weeknav-inner{
+    max-width:760px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:0 16px;
+  }
+  .nav-btn{
+    flex:none;
+    width:34px; height:34px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--ink);
+    font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .nav-btn:hover{border-color:var(--ink);}
+  .nav-btn:focus-visible, .pill:focus-visible, button:focus-visible{
+    outline:2px solid var(--ink); outline-offset:2px;
+  }
+  .pills{
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding:2px;
+  }
+  .pills::-webkit-scrollbar{display:none;}
+  .pill{
+    flex:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:500;
+    padding:7px 10px;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--ink-soft);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .pill[data-active="true"]{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:#fff;
+  }
+
+  main{max-width:760px; margin:0 auto; padding:18px 16px 0;}
+
+  .phase-banner{
+    font-family:'Oswald', sans-serif;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:5px solid var(--ink);
+    border-radius:var(--radius);
+    padding:12px 14px;
+    margin-bottom:16px;
+  }
+  .phase-banner .ph-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:2px;
+  }
+  .phase-banner .ph-name{
+    font-size:19px;
+    font-weight:600;
+    text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  .phase-banner .ph-focus{
+    font-family:'Inter', sans-serif;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.4;
+  }
+
+  .day-card{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    margin-bottom:16px;
+    overflow:hidden;
+    animation:rise 0.25s ease both;
+  }
+  @keyframes rise{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+
+  .day-card::before{
+    /* tape */
+    content:"";
+    position:absolute;
+    top:-6px; left:20px;
+    width:56px; height:18px;
+    background:var(--tape);
+    opacity:0.9;
+    transform:rotate(-2deg);
+    box-shadow:0 1px 1px rgba(0,0,0,0.08);
+  }
+  .day-card.type-race::before{ display:none; }
+
+  .day-accent{ height:6px; width:100%; }
+
+  .day-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+    padding:16px 16px 8px;
+  }
+  .day-date{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:22px;
+    text-transform:uppercase;
+    line-height:1.05;
+  }
+  .day-date small{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    font-weight:400;
+    color:var(--ink-soft);
+    text-transform:none;
+    margin-top:2px;
+  }
+  .type-badge{
+    flex:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    font-weight:500;
+    padding:5px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+
+  .day-title{
+    font-family:'Oswald', sans-serif;
+    font-size:15px;
+    font-weight:500;
+    letter-spacing:0.01em;
+    padding:0 16px 10px;
+    color:var(--ink);
+  }
+
+  .day-body{ padding:0 16px 16px; }
+
+  .meta-line{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+    line-height:1.5;
+  }
+  .meta-line b{ color:var(--ink); font-weight:600; }
+  .struct-note{
+    font-size:12px;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+  }
+
+  ol.items{
+    list-style:none;
+    counter-reset:it;
+    margin:0 0 10px;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+  }
+  .block-group{ margin:0 0 14px; }
+  .block-group:last-child{ margin-bottom:10px; }
+  .block-label{
+    display:inline-block;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    color:var(--ink);
+    background:var(--tape);
+    padding:4px 9px;
+    border-radius:var(--radius);
+    margin:0 0 8px;
+  }
+  .block-group ol.items{ margin-bottom:0; }
+  ol.items li{
+    counter-increment:it;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    line-height:1.45;
+    padding:8px 10px 8px 34px;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    position:relative;
+  }
+  ol.items li::before{
+    content:counter(it);
+    position:absolute;
+    left:10px; top:8px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  ol.items li b{ font-weight:600; color:var(--ink); }
+
+  table.strength{
+    width:100%;
+    border-collapse:collapse;
+    margin:0 0 10px;
+    font-size:12.5px;
+  }
+  table.strength th, table.strength td{
+    border-bottom:1px solid var(--line);
+    padding:7px 6px;
+    text-align:left;
+    vertical-align:top;
+  }
+  table.strength th{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+  table.strength td:first-child{ font-weight:500; }
+  table.strength td.mono, table.strength td:nth-child(2), table.strength td:nth-child(3), table.strength td:nth-child(4){
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  .run-grid{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin:0 0 10px;
+  }
+  .run-row{
+    display:flex;
+    gap:10px;
+    font-size:13px;
+    padding:9px 10px;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    align-items:baseline;
+  }
+  .run-who{
+    flex:none;
+    width:44px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:12px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .run-what{ font-family:'IBM Plex Mono', monospace; line-height:1.4; }
+
+  .fleur-note{
+    font-size:12px;
+    padding:8px 10px;
+    background:var(--strength-bg);
+    border:1px dashed var(--strength);
+    border-radius:var(--radius);
+    margin:0 0 10px;
+    line-height:1.5;
+  }
+  .fleur-note b{ color:var(--strength); }
+
+  .progress-row{
+    display:flex;
+    gap:8px;
+    padding:12px 16px 4px;
+  }
+  .progress-btn{
+    flex:1;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:500;
+    padding:7px 8px;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    background:var(--bg);
+    color:var(--ink-soft);
+    cursor:pointer;
+    text-align:center;
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .progress-btn:active{ transform:scale(0.97); }
+  .progress-btn.done{
+    background:#1E7D46;
+    border-color:#1E7D46;
+    color:#fff;
+  }
+  .day-card.all-done{
+    box-shadow:0 0 0 1.5px #1E7D46, var(--shadow);
+  }
+  .race-card .progress-row{ padding:14px 0 0; justify-content:center; }
+  .race-card .progress-btn{ flex:none; min-width:110px; border-color:rgba(255,255,255,0.25); background:rgba(255,255,255,0.06); color:#D8D0B8; }
+  .race-card .progress-btn.done{ background:var(--race); border-color:var(--race); color:#1C1A16; }
+
+  .progress-summary{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px solid var(--line);
+  }
+  .progress-summary b{ color:var(--ink); }
+  .week-progress{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  .reset-btn{
+    background:none;
+    border:none;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-decoration:underline;
+    cursor:pointer;
+    padding:0;
+  }
+
+  .principles-panel{
+    margin-top:10px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:10px 12px;
+  }
+  .principles-panel summary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:500;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .principles-content{ margin-top:10px; display:flex; flex-direction:column; gap:9px; }
+  .principles-content p{
+    font-size:12.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .principles-content p b{ color:var(--ink); font-weight:600; }
+
+  .day-footer{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding-top:6px;
+    border-top:1px solid var(--line);
+  }
+  .rpe-badge{
+    flex:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:11.5px;
+    padding:4px 8px;
+    border-radius:var(--radius);
+    background:var(--ink);
+    color:#fff;
+    white-space:nowrap;
+  }
+  .doel-text{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+    flex:1 1 200px;
+  }
+  .doel-text b{ color:var(--ink); font-weight:600; }
+
+  .rest-card, .race-card{
+    text-align:center;
+    padding:26px 16px;
+  }
+  .rest-card .icon, .race-card .icon{ font-size:22px; margin-bottom:6px; }
+  .race-card{
+    background:var(--race-bg);
+    color:#F3EEDD;
+  }
+  .race-card .day-date2{
+    font-family:'Oswald', sans-serif;
+    font-size:22px; font-weight:700; text-transform:uppercase;
+  }
+  .race-card .race-name{
+    font-family:'Oswald', sans-serif;
+    color:var(--race);
+    font-size:26px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin:4px 0 10px;
+  }
+  .race-card p{ font-size:13px; line-height:1.6; color:#D8D0B8; max-width:480px; margin:0 auto; }
+
+  .end-note{
+    font-size:12.5px;
+    font-style:italic;
+    color:var(--ink-soft);
+    text-align:center;
+    padding:14px 10px 30px;
+    max-width:520px;
+    margin:0 auto;
+  }
+
+  footer.site-footer{
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    padding:20px 16px 40px;
+  }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <p class="eyebrow">Roos &amp; Fleur — 8 sep t/m 29 nov 2026</p>
+  <h1>HYROX Doubles Weekschema</h1>
+  <p class="subtitle">Doel: 1:12:00 · Tik een week aan of blader met de pijlen. Elke kaart toont precies wat er die dag gedaan wordt.</p>
+  <div class="legend" id="legend"></div>
+  <div class="progress-summary" id="progressStats">Voortgang laden…</div>
+  <details class="principles-panel">
+    <summary>Trainingsprincipes &amp; drills — tik om te openen</summary>
+    <div class="principles-content">
+      <p><b>Standaard loopdrills-warm-up:</b> 2×20 m A-skip, 2×20 m high knees, 2×20 m butt kicks, 2×20 m rechte-beenbounds, na 5 min inlopen. Vóór de kwaliteitssessies op maandag/vrijdag.</p>
+      <p><b>Standaard transitie-drill (RoxZone):</b> 5× sled loslaten → direct 5 passen sprint; 5× wall ball/sandbag neerzetten → direct wegdraaien zonder zoeken. 3-4 min, vóór de dinsdagsessie in week 2, 5, 7, 8 en 11 — pakt het "gratis" tijdverlies uit de analyse (RoxZone, ca. 7-8 min) echt aan.</p>
+      <p><b>Wisselmoment-training (Doubles-overdracht):</b> anders dan RoxZone — dit is de overdracht tússen jullie tweeën bínnen een station. Tijdens checkpoint-tests en simulaties (week 6, 8, 9, 10): vooraf afspreken wie welk stuk doet, en het fysieke overdrachtsmoment 2-3× oefenen vóór de test.</p>
+      <p><b>Sled-techniek:</b> push — lage lichaamshoek (bijna horizontaal), armen gestrekt, korte snelle pasjes. Pull — rug recht, trek met de benen (niet alleen de armen), hand-over-hand ritme. Focus hierop in week 1 (Blok B) en week 8 (sterke-station overload).</p>
+      <p><b>Voeding rond zware dagen:</b> bij inspanningen boven een uur (simulaties week 9-10, wedstrijdweek) — de avond ervoor iets extra koolhydraten, een vertrouwd koolhydraatrijk ontbijt 2-3 uur van tevoren, water + elektrolyten binnen handbereik tijdens de sessie. Probeer nooit iets nieuws op een test- of wedstrijddag.</p>
+      <p><b>Ademhaling &amp; CO2-tolerantie:</b> Roos' burpee-zwakte is een hartslag-/ademhalingsprobleem, geen krachtprobleem. 2×/week (bv. op rustdagen): CO2-tafel — 5 ronden van [rustig in-/uitademen, adem inhouden tot lichte ademdrang, tijd noteren, 1 min normaal ademhalen]. Meet er wekelijks je BOLT-score bij. Tijdens burpees: uitademen bij het opstaan.</p>
+      <p><b>Mobility/prehab-routine</b> (10 min, op rustdagen of als cooldown na dinsdag/donderdag): enkels — 2×10 ankle rocks/kant; heupen — 2×30 sec 90/90 hip stretch/kant; borstwervel — 2×10 thoracic rotations/kant; schouders — 2×10 banded shoulder dislocates. Houdt enkels/heupen, schouders en borstwervel gezond bij 6 dagen/week.</p>
+      <p><b>Zone 2 op hartslag:</b> naast tempo geldt ook 65-75% van je max hartslag. Vuistregel (220 − leeftijd): Roos (26) ±126-146 bpm, Fleur (24) ±127-147 bpm — check je WHOOP voor een preciezere schatting. Hartslag structureel hoger dan dit bij het tempo? Ga dan op hartslag, niet op pace.</p>
+    </div>
+  </details>
+</div>
+
+<div class="weeknav-wrap">
+  <div class="weeknav-inner">
+    <button class="nav-btn" id="prevBtn" aria-label="Vorige week">‹</button>
+    <div class="pills" id="pills"></div>
+    <button class="nav-btn" id="nextBtn" aria-label="Volgende week">›</button>
+  </div>
+</div>
+
+<main id="weekview"></main>
+
+<footer class="site-footer">Gewichten &amp; tempo's zijn richtlijnen — pas aan op gevoel en WHOOP-herstel. Fleur's looptempo's zijn afgeleid van haar HYROX-tempo van mei (geen losse 5km-tijd bekend).<br><br><button class="reset-btn" id="resetBtn" type="button">Voortgang wissen</button></footer>
+
+<script>
+const TYPES = {
+  run:        {label:"Hardlopen",            color:"var(--run)",        bg:"var(--run-bg)"},
+  hyroxnorun: {label:"HYROX zonder running",  color:"var(--hyroxnorun)", bg:"var(--hyroxnorun-bg)"},
+  strength:   {label:"Full Body Strength",    color:"var(--strength)",   bg:"var(--strength-bg)"},
+  hyroxrun:   {label:"HYROX + Running",       color:"var(--hyroxrun)",   bg:"var(--hyroxrun-bg)"},
+  bike:       {label:"Zone 2 Fietsen",        color:"var(--bike)",       bg:"var(--bike-bg)"},
+  rest:       {label:"Rust",                  color:"var(--rest)",       bg:"var(--rest-bg)"},
+  race:       {label:"Wedstrijd",             color:"var(--race)",       bg:"var(--race-bg)"}
+};
+
+const WEEKS = [
+{
+  num:1, range:"8 – 13 september",
+  phase:{name:"Fase 1 — Base / Capacity", focus:"Aerobe basis, techniek op zwakke stations, kracht opbouwen. Korte week — start op dinsdag."},
+  days:[
+    {type:"hyroxnorun", dow:"Di", date:"8/9", title:"HYROX zonder running — Techniek",
+     warmup:"5 min fiets/roeier rustig, mobility heupen/enkels/schouders, 2×10 air squats, 2×10 bodyweight lunges.",
+     blocks:[
+       {label:"Blok A — Technique EMOM (4 ronden × 4 min = 16 min)", items:[
+         "Minuut 1 — **Walking lunges** (bodyweight) — 12 reps, achterste knie raakt de vloer elke rep",
+         "Minuut 2 — **Wall balls** (licht ~3 kg of bodyweight) — 15 reps, volledige squat + rechte gooilijn",
+         "Minuut 3 — **Burpees** — 8 reps, gecontroleerd tempo, uitademen bij opstaan",
+         "Minuut 4 — Rust/reset"
+       ]},
+       {label:"Blok B (3 ronden, rust 90 sec tussen rondes = 12 min)", items:[
+         "**SkiErg** — 300 m rustig",
+         "**Sled Push** — 4×12,5 m @ 60-70 kg, techniekfocus (zie sled-cues bovenin)"
+       ]}
+     ],
+     rpe:"5-6/10", doel:"Bewegingskwaliteit vastleggen op de drie zwakke stations vóórdat er tempo/belasting bijkomt. Sterke stations blijven licht — puur onderhoud."},
+    {type:"strength", dow:"Wo", date:"9/9", title:"Full Body Strength",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","3×10","RPE 7","90 sec"],
+       ["Romanian deadlift","3×10","RPE 7","90 sec"],
+       ["Bulgarian split squat — gewicht vrije invul","3×12/been","RPE 6-7","90 sec"],
+       ["Lat pulldown","4×8-10","RPE 7","90 sec"],
+       ["Incline bench press","3×10","RPE 7","90 sec"],
+       ["Shoulder press (barbell)","3×8","RPE 7","90 sec"]
+     ]},
+     doel:"Kracht en spiermassa behouden, basis leggen met een vaste, herhaalbare oefenkeuze."},
+    {type:"hyroxrun", dow:"Do", date:"10/9", title:"HYROX + Running — Introductie compromised running",
+     warmup:"Rustig joggen/fietsen + dynamische mobility + activatiereps van de stations.",
+     structNote:"4 ronden, rust 60 sec. Samen op hetzelfde tempo — jullie rennen straks ook samen in de Doubles-race.",
+     items:[
+       "**Loopband** — 400 m @ 6:15-6:30/km (Roos & Fleur samen)",
+       "**Station** (afwisselend per ronde) — Wall balls 15 reps techniek / Sandbag lunges 20 m bodyweight of licht / Burpees 8 reps"
+     ],
+     rpe:"5-6/10", doel:"Wennen aan lopen direct na/voor stations (compromised running introductie) op lage/matige intensiteit — nog geen tempo-druk."},
+    {type:"run", dow:"Vr", date:"11/9", title:"Hardlopen — TEST 1: 5 km tijdrit (vers-loopplafond)",
+     warmup:"15-20 min, geleidelijk opbouwend + 3-4× 10-20 sec korte strides met rustig joggen ertussen.",
+     structNote:"Beiden apart, eigen tempo. Cooling-down: rustig uitlopen/wandelen.",
+     items:[
+       "**5 km, all-out** — zo snel als je de volledige afstand kan volhouden. Baan (12,5 ronden), vlakke weg, of een Parkrun-achtig rondje.",
+       "**Noteer:** totaaltijd + gemiddeld tempo (min/km), voor Roos én Fleur apart."
+     ],
+     rpe:"9-10/10 (maximaal, goed gepaced)", doel:"Dit vers-tempo is de basis voor Test 2 volgende week (donderdag 17/9), en voor het herijken van alle tempo's in dit schema."},
+    {type:"bike", dow:"Za", date:"12/9", title:"Zone 2 Fietsen",
+     runInfo:{roos:"60 min, RPE 4, conversatietempo, HR-zone 2 (~65-75% max HR) — samen", fleur:"Samen met Roos"},
+     rpe:"4/10", doel:"Aerobe capaciteit + actief herstel na de week."},
+    {type:"rest", dow:"Zo", date:"13/9", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin)."}
+  ]
+},
+{
+  num:2, range:"14 – 20 september",
+  phase:{name:"Fase 1 — Base / Capacity", focus:"Aerobe basis, techniek op zwakke stations, kracht opbouwen."},
+  days:[
+    {type:"run", dow:"Ma", date:"14/9", title:"Hardlopen — Zone 2",
+     runInfo:{roos:"50-55 min Zone 2 @ 6:00-6:15/km, ononderbroken", fleur:"50-55 min Zone 2 @ 6:30-6:45/km, ononderbroken"},
+     rpe:"4-5/10", doel:"Aerobe volume opbouwen."},
+    {type:"hyroxnorun", dow:"Di", date:"15/9", title:"HYROX zonder running — Piramide",
+     warmup:"Zoals week 1, + standaard transitie-drill (bovenin).",
+     structNote:"Piramide, 5 ronden, tussendoor SkiErg als 'buffer'. Rust 60 sec na elke ronde.",
+     items:[
+       "Ronde 1 — Lunges 8/been · Wall balls 10 · Burpees 6 · SkiErg 250 m",
+       "Ronde 2 — Lunges 10/been · Wall balls 12 · Burpees 8 · SkiErg 250 m",
+       "Ronde 3 — Lunges 12/been · Wall balls 15 · Burpees 10 · SkiErg 250 m",
+       "Ronde 4 — Lunges 10/been · Wall balls 12 · Burpees 8 · SkiErg 250 m",
+       "Ronde 5 — Lunges 8/been · Wall balls 10 · Burpees 6 · SkiErg 250 m"
+     ],
+     fleur:"Lunges bodyweight of zeer licht, verder gelijk.",
+     rpe:"6-7/10", doel:"Spieruithoudingsvermogen opbouwen op de zwakke stations onder oplopende belasting. SkiErg houdt het tempo hoog en leert doorgaan bij vermoeidheid."},
+    {type:"strength", dow:"Wo", date:"16/9", title:"Full Body Strength",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","3×10","RPE 7","90 sec"],
+       ["Romanian deadlift","3×10","RPE 7","90 sec"],
+       ["Bulgarian split squat — gewicht vrije invul","3×10/been","RPE 7","90 sec"],
+       ["Lat pulldown","4×10","RPE 7","90 sec"],
+       ["Incline bench press","3×10","RPE 7","90 sec"],
+       ["Shoulder press (barbell)","3×8","RPE 7","90 sec"]
+     ]},
+     doel:"Zelfde opbouw als week 1, gericht op consistentie in uitvoering."},
+    {type:"hyroxrun", dow:"Do", date:"17/9", title:"HYROX + Running — TEST 2: compromised-tempo",
+     warmup:"10-15 min.",
+     structNote:"4×1 km op het tempo van je 5 km-tijdrit (Test 1, vrijdag 11/9). Minimale rust na het station (30-45 sec), dan direct de volgende km.",
+     items:[
+       "**1 km run** @ tempo Test 1 → **station** (kies óf sled push 4×12,5 m zwaar óf 15 burpees — blijf de hele test bij die keuze) — herhaal 4×",
+       "**Noteer:** alle 4 kilometertijden apart, voor Roos én Fleur"
+     ],
+     rpe:"8-9/10", doel:"Bepaalt jullie échte, houdbare HYROX-looptempo onder vermoeidheid. Blijven de 4 tijden binnen ~10-15 sec/km van elkaar → dat tempo (of iets sneller) is realistisch. Zak je meer dan ~20-25 sec/km weg → reken 5-10 sec/km trager.",
+     warn:"Herijk vanaf hier jullie tempo's: alle looptempo's in dit schema waren tot nu toe schattingen. HYROX-doeltempo = tempo uit Test 2 zonder grote fade (evt. −5 tot −10 sec/km als groeidoel). Overige zones, zelfde offsets t.o.v. je vers-tempo (Test 1) als door dit hele schema: Zone 2 ≈ vers-tempo +60 tot +75 sec/km, drempel ≈ +15 tot +30 sec/km, VO2max/interval ≈ −15 tot −5 sec/km, korte snelheid ≈ −35 tot −20 sec/km. Pas dit vanaf week 3 zelf toe, of stuur de testresultaten door zodat het schema omgerekend kan worden."},
+    {type:"run", dow:"Vr", date:"18/9", title:"Hardlopen — Techniek/economie",
+     runInfo:{roos:"35 min rustig @ 6:00-6:15/km + 6×100 m strides, volledig herstel (standaard loopdrills-warm-up)", fleur:"35 min rustig @ 6:30-6:45/km + 6×100 m strides, volledig herstel"},
+     rpe:"4-5/10", doel:"Loopeconomie/techniek, niet volume."},
+    {type:"bike", dow:"Za", date:"19/9", title:"Zone 2 Fietsen",
+     runInfo:{roos:"70 min, RPE 4 — samen", fleur:"Samen met Roos"}, rpe:"4/10", doel:"Aerobe basis."},
+    {type:"rest", dow:"Zo", date:"20/9", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin)."}
+  ]
+},
+{
+  num:3, range:"21 – 27 september",
+  phase:{name:"Fase 1 — Base / Capacity", focus:"Laatste week van de basisfase — check-in aan het eind: hoe voelen de zwakke stations, hoe voelt het opgebouwde loopvolume?"},
+  days:[
+    {type:"run", dow:"Ma", date:"21/9", title:"Hardlopen — Eerste drempelprikkel",
+     runInfo:{roos:"Drempel: 2×10 min @ 5:20-5:30/km, 3 min jog rust. Warming-up (incl. standaard loopdrills)/cooling-down 10 min.", fleur:"Drempel: 2×10 min @ 5:45-6:00/km, 3 min jog rust."},
+     rpe:"6-7/10", doel:"Eerste drempelprikkel van het blok — aeroob plafond optrekken."},
+    {type:"hyroxnorun", dow:"Di", date:"22/9", title:"HYROX zonder running — Broken sets",
+     warmup:"10 min.",
+     structNote:"4 ronden, broken sets, langere time-under-tension. Rust 2 min tussen rondes.",
+     items:[
+       "**Sandbag lunges** — Roos 10 kg / Fleur bodyweight of 5 kg, 40 m (mag in 2×20 m), rust 20 sec",
+       "**Wall balls** — 4 kg (Fleur 3 kg), 20 reps ononderbroken, rust 30 sec",
+       "**Burpees** — 10 reps, gecontroleerd tempo, ademhaling",
+       "**Farmers carry** (overload) — Roos 2×18 kg / Fleur 2×16 kg, 50 m"
+     ],
+     rpe:"7/10", doel:"Time-under-tension op de zwakke stations richting wedstrijdvolume; grip/farmers carry alvast zwaarder dan wedstrijdgewicht — Fleur's ontwikkelpunt en Roos' sterke station tegelijk."},
+    {type:"strength", dow:"Wo", date:"23/9", title:"Full Body Strength",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","3×8","RPE 7-8","90 sec"],
+       ["Romanian deadlift","3×8","RPE 7-8","2 min"],
+       ["Bulgarian split squat — gewicht vrije invul","3×15/been","RPE 7","90 sec"],
+       ["Lat pulldown (zwaar)","4×8-10","RPE 7","90 sec"],
+       ["Incline bench press","3×8","RPE 7-8","90 sec"],
+       ["Shoulder press (barbell)","3×8","RPE 7-8","90 sec"]
+     ]},
+     doel:"Geleidelijke overload richting fase 2 — iets zwaarder, iets minder reps."},
+    {type:"hyroxrun", dow:"Do", date:"24/9", title:"HYROX + Running",
+     warmup:"10 min.",
+     structNote:"3 ronden, rust 90 sec.",
+     items:[
+       "**Loopband** — 600 m @ 5:10-5:20/km",
+       "**SkiErg** — 400 m",
+       "**Loopband** — 600 m (zelfde tempo)",
+       "**Sled push** — 4×12,5 m @ 90 kg",
+       "**Loopband** — 600 m (zelfde tempo)",
+       "**Burpees** — 12 reps"
+     ],
+     rpe:"7/10", doel:"Meerdere stations combineren met terugkerende runs (dichtheid), eerste kennismaking met tempo richting wedstrijdtempo."},
+    {type:"run", dow:"Vr", date:"25/9", title:"Hardlopen — Zone 2",
+     runInfo:{roos:"45-50 min Zone 2 @ 6:00-6:15/km", fleur:"45-50 min Zone 2 @ 6:30-6:45/km"},
+     rpe:"4-5/10", doel:"Aerobe basis."},
+    {type:"bike", dow:"Za", date:"26/9", title:"Zone 2 Fietsen",
+     runInfo:{roos:"75 min, RPE 4 — samen", fleur:"Samen met Roos"}, rpe:"4/10", doel:"Aerobe basis."},
+    {type:"rest", dow:"Zo", date:"27/9", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin). Einde Fase 1 — check-in vóór fase 2."}
+  ]
+},
+{
+  num:4, range:"28 september – 4 oktober",
+  phase:{name:"Fase 2 — Strength Endurance", focus:"Stationdichtheid omhoog, langere inspanningen, drempeltraining."},
+  days:[
+    {type:"run", dow:"Ma", date:"28/9", title:"Hardlopen — Drempel",
+     runInfo:{roos:"3×8 min @ 5:20-5:25/km, 2 min jog rust. Warming-up (incl. standaard loopdrills)/cooling-down 10 min elk.", fleur:"3×8 min @ 5:45-5:55/km, 2 min jog rust."},
+     rpe:"7/10", doel:"Drempelvermogen verder opbouwen."},
+    {type:"hyroxnorun", dow:"Di", date:"29/9", title:"HYROX zonder running — Density EMOM",
+     warmup:"10 min.",
+     structNote:"4 blokken × 10 min, 2 min rust tussen blokken. Oneven minuut / even minuut wisselen af.",
+     items:[
+       "Blok 1 — Wall balls 12 reps (4 kg/Fleur 3 kg) ↔ SkiErg 200 m",
+       "Blok 2 — Sandbag lunges 15 m (10 kg/Fleur licht) ↔ Sled push 2×12,5 m @ 95 kg",
+       "Blok 3 — Burpees 8 reps ↔ Row 200 m",
+       "Blok 4 — Farmers carry 30 m (2×18 kg/Fleur 2×14 kg) ↔ Sled pull 2×12,5 m @ 70 kg"
+     ],
+     rpe:"7-8/10", doel:"Verhoogde dichtheid — zwak en sterk station wisselen continu af. Bouwt tolerantie op voor herhaalde overgangen, de kern van HYROX-vaardigheid."},
+    {type:"strength", dow:"Wo", date:"30/9", title:"Full Body Strength",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","3×12","RPE 7-8","90 sec"],
+       ["Romanian deadlift","3×12","RPE 7","90 sec"],
+       ["Bulgarian split squat — gewicht vrije invul","3×15/been","RPE 7","90 sec"],
+       ["Lat pulldown","4×12","RPE 7","90 sec"],
+       ["Incline bench press","3×12","RPE 7","90 sec"],
+       ["Shoulder press (barbell)","3×10","RPE 7","90 sec"]
+     ]},
+     doel:"Overgang naar kracht-uithoudingsvermogen — hogere reps op alle oefeningen."},
+    {type:"hyroxrun", dow:"Do", date:"1/10", title:"HYROX + Running",
+     warmup:"10 min.",
+     structNote:"4 ronden, rust 2 min. Station rouleert per ronde.",
+     items:[
+       "**Loopband** — 1000 m @ drempeltempo (Roos 5:15-5:25/km, Fleur 5:45-5:55/km)",
+       "**Station** (rouleert) — Sled pull 4×12,5 m @ 75 kg / Wall balls 20 reps @ 4 kg / Farmers carry 50 m @ 2×16 kg / Burpees 15 reps"
+     ],
+     rpe:"7-8/10", doel:"Drempelvermogen combineren met stationbelasting — traint doorlopen op hoog aeroob tempo ondanks krachtvermoeidheid."},
+    {type:"run", dow:"Vr", date:"2/10", title:"Hardlopen — Zone 2",
+     runInfo:{roos:"55-60 min Zone 2 @ 6:00-6:15/km", fleur:"55-60 min Zone 2 @ 6:30-6:45/km"},
+     rpe:"4-5/10", doel:"Aerobe basis."},
+    {type:"bike", dow:"Za", date:"3/10", title:"Zone 2 Fietsen",
+     runInfo:{roos:"70 min, RPE 4 — samen", fleur:"Samen met Roos"}, rpe:"4/10", doel:"Aerobe basis."},
+    {type:"rest", dow:"Zo", date:"4/10", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin)."}
+  ]
+},
+{
+  num:5, range:"5 – 11 oktober",
+  phase:{name:"Fase 2 — Strength Endurance", focus:"Stationdichtheid omhoog, langere inspanningen, drempeltraining."},
+  days:[
+    {type:"run", dow:"Ma", date:"5/10", title:"Hardlopen — VO2max",
+     runInfo:{roos:"6×3 min @ 4:45-4:55/km, 2 min jog rust", fleur:"6×3 min @ 5:10-5:20/km, 2 min jog rust"},
+     rpe:"8/10", doel:"Aeroob plafond (VO2max) aanspreken — geeft later meer buffer bij race-pace inspanningen."},
+    {type:"hyroxnorun", dow:"Di", date:"6/10", title:"HYROX zonder running — Transitietraining",
+     warmup:"10 min, + standaard transitie-drill (bovenin).",
+     structNote:"4 ronden, minimale rust tussen oefeningen (transitie oefenen), 2 min rust tussen rondes.",
+     items:[
+       "**Sled push** — 4×12,5 m @ 95-100 kg",
+       "(snelle overgang) **Burpees** — 10 reps",
+       "(snelle overgang) **Wall balls** — 15 reps @ 4 kg (Fleur 3 kg)",
+       "(snelle overgang) **Sandbag lunges** — 30 m @ 10 kg (Fleur licht/bodyweight)"
+     ],
+     rpe:"7-8/10", doel:"Direct werken aan transitiesnelheid tussen stations (RoxZone) én het effect van vermoeidheid van het ene station op het volgende."},
+    {type:"strength", dow:"Wo", date:"7/10", title:"Full Body Strength",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","3×12","RPE 7-8","90 sec"],
+       ["Romanian deadlift","3×12","RPE 7","90 sec"],
+       ["Bulgarian split squat — gewicht vrije invul","3×12/been","RPE 7","90 sec"],
+       ["Lat pulldown","4×12","RPE 7","90 sec"],
+       ["Incline bench press","3×12","RPE 7-8","90 sec"],
+       ["Shoulder press (barbell)","3×10","RPE 7-8","90 sec"]
+     ]},
+     doel:"Kracht-uithoudingsvermogen verder opbouwen."},
+    {type:"hyroxrun", dow:"Do", date:"8/10", title:"HYROX + Running — Eerste race-pace poging",
+     warmup:"10 min.",
+     structNote:"4 ronden, rust 2 min.",
+     items:[
+       "**Loopband** — 800 m @ race-pace-doel (Roos 4:55-5:05/km, Fleur 5:20-5:30/km)",
+       "**SkiErg** — 400 m stevig",
+       "**Loopband** — 800 m (zelfde tempo)",
+       "**Sled push** — 4×12,5 m @ 100 kg"
+     ],
+     rpe:"8/10", doel:"Eerste keer wedstrijdtempo lopen in combinatie met stations — kalibreert het gevoel voor een haalbaar tempo onder vermoeidheid."},
+    {type:"run", dow:"Vr", date:"9/10", title:"Hardlopen — Heuvelsprints",
+     runInfo:{roos:"25 min Zone 2 inlopen @ 6:00-6:15/km + 6×10 sec heuvelsprints (steile helling, maximale inspanning, vol herstel) + 10 min uitlopen", fleur:"25 min Zone 2 inlopen @ 6:30-6:45/km + 6×10 sec heuvelsprints + 10 min uitlopen"},
+     rpe:"6/10 (kort en krachtig)", doel:"Heuvelsprints trainen kracht, souplesse en loopeconomie met minder impact dan sprinten op vlak terrein — eerste keer dit blok, komt vaker terug."},
+    {type:"bike", dow:"Za", date:"10/10", title:"Zone 2 Fietsen",
+     runInfo:{roos:"75 min, RPE 4 — samen", fleur:"Samen met Roos"}, rpe:"4/10", doel:"Aerobe basis."},
+    {type:"rest", dow:"Zo", date:"11/10", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin)."}
+  ]
+},
+{
+  num:6, range:"12 – 18 oktober",
+  phase:{name:"Fase 2 — Strength Endurance", focus:"Checkpoint-testweek — meet waar jullie staan t.o.v. de race van 14 mei."},
+  days:[
+    {type:"run", dow:"Ma", date:"12/10", title:"Hardlopen — Race-pace intervallen",
+     runInfo:{roos:"5×1 km @ 5:00-5:10/km, 2 min rust", fleur:"5×1 km @ 5:20-5:30/km, 2 min rust"},
+     rpe:"8/10", doel:"Laatste kwaliteitsblok vóór checkpoint-test 1 op donderdag."},
+    {type:"hyroxnorun", dow:"Di", date:"13/10", title:"HYROX zonder running — Pacing/lactaattolerantie",
+     warmup:"10 min.",
+     structNote:"12 min AMRAP, rust 3 min, dan 8 min AMRAP #2 — zelfde ronde.",
+     items:[
+       "**Wall balls** — 8 reps (4 kg/Fleur 3 kg)",
+       "**Burpees** — 8 reps",
+       "**Sandbag lunges** — 10 kg (Fleur licht), 5/been",
+       "**Row** — 100 m"
+     ],
+     rpe:"8-9/10", doel:"Leren pacen tijdens oplopende vermoeidheid op de zwaarste stations — lactaattolerantie en pacing, bewust licht belast zodat tempo de uitdaging is, niet gewicht."},
+    {type:"strength", dow:"Wo", date:"14/10", title:"Full Body Strength (lichter — deload)",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","2×10","RPE 6-7","90 sec"],
+       ["Romanian deadlift","2×10","RPE 6-7","90 sec"],
+       ["Bulgarian split squat — gewicht vrije invul (houd het licht deze week)","2×12/been","RPE 6","90 sec"],
+       ["Lat pulldown","3×8","RPE 6-7","90 sec"],
+       ["Incline bench press","2×10","RPE 6-7","90 sec"],
+       ["Shoulder press (barbell)","2×8","RPE 6","90 sec"]
+     ]},
+     doel:"Volume bewust omlaag, zodat donderdag fris uitgevoerd kan worden."},
+    {type:"hyroxrun", dow:"Do", date:"15/10", title:"CHECKPOINT-TEST 1 — Eerste helft simulatie",
+     warmup:"12-15 min, grondig — dit is een testmoment.",
+     structNote:"Noteer elke deeltijd. Oefen bewust snelle overgangen (RoxZone) én het wisselmoment bij elk station (bovenin) — spreek vooraf af wie welk stuk doet.",
+     items:[
+       "**Loopband** — 1 km, race-inspanning (ieder eigen tempo)",
+       "**SkiErg** — 1000 m",
+       "**Loopband** — 1 km",
+       "**Sled push** — 50 m @ 102 kg (wedstrijdgewicht)",
+       "**Loopband** — 1 km",
+       "**Sled pull** — 50 m @ 78 kg (wedstrijdgewicht)",
+       "**Loopband** — 1 km",
+       "**Burpee broad jump** — 80 m"
+     ],
+     rpe:"8/10 — hard en eerlijk, geen finale wedstrijdinspanning", doel:"Direct vergelijkbaar met runs 1-4 en stations 1-4 uit de race van 14 mei — concreet meten waar jullie nu staan, inclusief transitietijd."},
+    {type:"run", dow:"Vr", date:"16/10", title:"Hardlopen — Herstel na test",
+     runInfo:{roos:"35-40 min zeer rustig @ 6:15-6:30/km", fleur:"35-40 min zeer rustig @ 6:45-7:00/km"},
+     rpe:"3-4/10", doel:"Herstel na de testinspanning van donderdag."},
+    {type:"bike", dow:"Za", date:"17/10", title:"Zone 2 Fietsen (verlaagd)",
+     runInfo:{roos:"60 min, RPE 3-4 — herstelweek na de test", fleur:"Samen met Roos"}, rpe:"3-4/10", doel:"Herstel."},
+    {type:"rest", dow:"Zo", date:"18/10", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin). Einde Fase 2 — vergelijk checkpoint-tijden met de race van 14 mei."}
+  ]
+},
+{
+  num:7, range:"19 – 25 oktober",
+  phase:{name:"Fase 3 — Deload + hertest", focus:"Bewust lichte week: volume en intensiteit gaan op alle dagen omlaag, met een hertest op maandag terwijl de benen nog fris zijn van de vorige (herstel)week."},
+  days:[
+    {type:"run", dow:"Ma", date:"19/10", title:"Hardlopen — TEST 3: 3 km tijdrit (herijking)",
+     warmup:"15 min, geleidelijk opbouwend + 3-4 strides.",
+     items:[
+       "**3 km, all-out.** Beiden apart, eigen tempo.",
+       "**Noteer:** totaaltijd + gemiddeld tempo, voor Roos én Fleur"
+     ],
+     rpe:"9/10", doel:"Halverwege het blok een snelle check op de tempo's uit Test 1/2 — gebruik dezelfde offset-formules (zie Test 2, week 2) om Zone 2/drempel/VO2max/race-pace voor de rest van het blok aan te scherpen."},
+    {type:"hyroxnorun", dow:"Di", date:"20/10", title:"HYROX zonder running — Deload/techniek",
+     warmup:"10 min, + standaard transitie-drill (bovenin).",
+     structNote:"2 ronden, rust 90 sec.",
+     items:[
+       "**Wall balls** — 15 reps (licht)",
+       "**Sandbag lunges** — 30 m (licht)",
+       "**Burpees** — 10 reps"
+     ],
+     rpe:"5-6/10", doel:"Laag volume, techniek- en transitiefocus — herstel na checkpoint-test 1 en vóór de opbouw naar de simulaties."},
+    {type:"strength", dow:"Wo", date:"21/10", title:"Full Body Strength (deload)",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","2×8","RPE 6","90 sec"],
+       ["Romanian deadlift","2×6","RPE 6","90 sec"],
+       ["Lat pulldown","2×8","RPE 6","90 sec"],
+       ["Incline bench press","2×6","RPE 6","90 sec"],
+       ["Shoulder press (barbell)","2×6","RPE 6","90 sec"]
+     ]},
+     doel:"Volume en intensiteit bewust omlaag — deze week draait om herstel en absorptie, niet om nieuwe overload."},
+    {type:"hyroxrun", dow:"Do", date:"22/10", title:"HYROX + Running — Deload",
+     warmup:"10 min.",
+     structNote:"3 ronden, rust 90 sec.",
+     items:[
+       "1 km run, rustiger dan race-pace (Roos ±5:30-5:40/km, Fleur ±5:55-6:05/km) → **Burpees** 10 reps"
+     ],
+     rpe:"6/10", doel:"Looppatroon-onder-lichte-vermoeidheid onderhouden zonder nieuwe trainingsstimulus — ruimte om Test 3 en de vorige zware weken te verwerken."},
+    {type:"run", dow:"Vr", date:"23/10", title:"Hardlopen — Deload",
+     runInfo:{roos:"30-35 min Zone 2, rustig, geen intervallen @ 6:00-6:15/km", fleur:"30-35 min Zone 2, rustig, geen intervallen @ 6:30-6:45/km"},
+     rpe:"4/10", doel:"Actief herstel."},
+    {type:"bike", dow:"Za", date:"24/10", title:"Zone 2 Fietsen (verlaagd)",
+     runInfo:{roos:"40 min, RPE 3-4 — samen", fleur:"Samen met Roos"}, rpe:"3-4/10", doel:"Herstel."},
+    {type:"rest", dow:"Zo", date:"25/10", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin). Einde deload-week — checkpoint-test 2 volgt donderdag 29/10."}
+  ]
+},
+{
+  num:8, range:"26 oktober – 1 november",
+  phase:{name:"Fase 3 — HYROX Specific", focus:"Compromised running, race-pace werk, toenemende specificiteit richting de wedstrijd."},
+  days:[
+    {type:"run", dow:"Ma", date:"26/10", title:"Hardlopen — Compromised-style surge run",
+     runInfo:{roos:"6×(400 m @ 4:30/km + 400 m @ 5:20/km), doorlopend zonder stoppen", fleur:"6×(400 m @ 4:55/km + 400 m @ 5:45/km), doorlopend zonder stoppen"},
+     rpe:"7-8/10", doel:"Wennen aan tempowisselingen door vermoeidheid — actief leren versnellen/vertragen i.p.v. één vast tempo."},
+    {type:"hyroxnorun", dow:"Di", date:"27/10", title:"HYROX zonder running — Sterke-station overload",
+     warmup:"10 min, + standaard transitie-drill (bovenin).",
+     items:[
+       "Blok 1 — **Sled push** 6×12,5 m @ 105-110 kg, rust 60 sec (lage lichaamshoek, korte snelle pasjes)",
+       "Blok 2 — **Sled pull** 6×12,5 m @ 82-85 kg, rust 60 sec (rug recht, trek met de benen)",
+       "Blok 3 (direct aansluitend, op vermoeide benen) — 3 ronden: Wall balls 15 · Burpees 10 · Sandbag lunges 20 m, rust 90 sec"
+     ],
+     rpe:"8/10", doel:"Sterke stations boven wedstrijdgewicht trainen (tijdsbuffer opbouwen) én zwakke stations trainen op vermoeide benen, zoals na stations 2-3 in de wedstrijd."},
+    {type:"strength", dow:"Wo", date:"28/10", title:"Full Body Strength",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","2×8","RPE 7","90 sec"],
+       ["Romanian deadlift","2×8","RPE 7","90 sec"],
+       ["Bulgarian split squat — gewicht vrije invul","2×12/been","RPE 7","90 sec"],
+       ["Lat pulldown","3×8","RPE 7","90 sec"],
+       ["Incline bench press","3×6","RPE 7-8","90 sec"],
+       ["Shoulder press (barbell)","2×8","RPE 7","90 sec"]
+     ]},
+     doel:"Kracht behouden, laag volume."},
+    {type:"hyroxrun", dow:"Do", date:"29/10", title:"CHECKPOINT-TEST 2 — Tweede helft simulatie",
+     warmup:"12-15 min.",
+     structNote:"Letterlijk stations 5-8 op wedstrijdvolume — vaak het zwaarste stuk (vermoeide benen). Oefen ook hier het wisselmoment per station (bovenin).",
+     items:[
+       "**Loopband** — 1 km, race-inspanning",
+       "**Row** — 1000 m",
+       "**Loopband** — 1 km",
+       "**Farmers carry** — 200 m @ 2×16 kg (Fleur 2×14 kg)",
+       "**Loopband** — 1 km",
+       "**Sandbag lunges** — 100 m @ 10 kg (Fleur 8 kg)",
+       "**Loopband** — 1 km",
+       "**Wall balls** — 100 reps @ 4 kg (Fleur 3-4 kg, volume desnoods iets lager)"
+     ],
+
+     rpe:"8-9/10", doel:"Tweede checkpoint, direct vergelijkbaar met runs 5-8 en stations 5-8 uit de race van 14 mei."},
+    {type:"run", dow:"Vr", date:"30/10", title:"Hardlopen — Zone 2 + drempel-finish",
+     runInfo:{roos:"45 min Zone 2 @ 6:00-6:15/km, laatste 10 min @ drempeltempo (5:20-5:30/km)", fleur:"45 min Zone 2 @ 6:30-6:45/km, laatste 10 min @ drempeltempo (5:45-6:00/km)"},
+     rpe:"5-6/10", doel:"Aerobe basis met drempelimpuls."},
+    {type:"bike", dow:"Za", date:"31/10", title:"Zone 2 Fietsen",
+     runInfo:{roos:"65 min, RPE 4 — samen", fleur:"Samen met Roos"}, rpe:"4/10", doel:"Aerobe basis."},
+    {type:"rest", dow:"Zo", date:"1/11", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin)."}
+  ]
+},
+{
+  num:9, range:"2 – 8 november",
+  phase:{name:"Fase 3 — HYROX Specific", focus:"Eerste volledige simulatie — het belangrijkste ijkpunt vóór de peak-fase."},
+  days:[
+    {type:"run", dow:"Ma", date:"2/11", title:"Hardlopen — Zone 2 (rustig)",
+     runInfo:{roos:"40 min Zone 2 @ 6:00-6:15/km, rustig", fleur:"40 min Zone 2 @ 6:30-6:45/km, rustig"},
+     rpe:"4/10", doel:"Bewust rustig — donderdag komt de eerste volledige simulatie."},
+    {type:"hyroxnorun", dow:"Di", date:"3/11", title:"HYROX zonder running — Mini-simulatie",
+     warmup:"10-12 min.",
+     structNote:"Alle 8 stations achter elkaar, verkort volume (~50%), minimale rust — RoxZone oefenen. Focus: gelijkmatig tempo over alle 8 stations.",
+     items:[
+       "**SkiErg** — 500 m",
+       "**Sled push** — 25 m @ 102 kg",
+       "**Sled pull** — 25 m @ 78 kg",
+       "**Burpee broad jump** — 40 m",
+       "**Row** — 500 m",
+       "**Farmers carry** — 100 m @ 2×16 kg (Fleur 2×14 kg)",
+       "**Sandbag lunges** — 50 m @ 10 kg (Fleur 8 kg)",
+       "**Wall balls** — 50 reps @ 4 kg (Fleur 3-4 kg)"
+     ],
+     rpe:"8-9/10", doel:"Pacingtest over de volledige stationvolgorde, zonder de extra vermoeidheidslaag van hardlopen — isoleert of jullie de stations zelf goed kunnen pacen."},
+    {type:"strength", dow:"Wo", date:"4/11", title:"Full Body Strength (minimaal)",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","2×8","RPE 6-7","90 sec"],
+       ["Romanian deadlift","2×8","RPE 6-7","90 sec"],
+       ["Lat pulldown","2×8","RPE 6-7","90 sec"],
+       ["Shoulder press (barbell)","2×6","RPE 6","90 sec"]
+     ]},
+     doel:"Puur onderhoud op trekpatronen en heupen; lunges en incline press slaan we deze week over zodat benen en schouders fris zijn voor de simulatie van donderdag."},
+    {type:"hyroxrun", dow:"Do", date:"5/11", title:"VOLLEDIGE SIMULATIE #1",
+     warmup:"15 min, grondig, inclusief activatiereps van alle stations.",
+     structNote:"Volledige HYROX-volgorde op wedstrijdgewichten/-afstanden, eigen stationverdeling, 'controlled hard'. 8×1 km run @ doeltempo + alle 8 stations op wedstrijdgewicht/-volume, met bewust geoefende, snelle transities.",
+     items:[
+       "8×1 km run @ doeltempo (Roos 4:55-5:05/km, Fleur 5:20-5:30/km)",
+       "Alle 8 stations op wedstrijdgewicht/-volume (zie referentietabel)",
+       "Bewust geoefende, snelle transities (RoxZone) én wisselmomenten (bovenin)",
+       "Fueling: vertrouwd koolhydraatrijk ontbijt 2-3 uur van tevoren, water + elektrolyten binnen handbereik"
+     ],
+     rpe:"8-9/10 — controlled hard, geen 100% wedstrijdinspanning", doel:"De belangrijkste testdag van het hele blok. Noteer elke deeltijd en vergelijk met de race van 14 mei en checkpoint-tests 1 en 2.",
+     warn:"Plan deze sessie niet op een dag met structureel lage WHOOP recovery-score — verzet hem liever 1-2 dagen."},
+    {type:"run", dow:"Vr", date:"6/11", title:"Hardlopen — Herstel na simulatie",
+     runInfo:{roos:"30 min zeer rustig @ 6:15-6:30/km", fleur:"30 min zeer rustig @ 6:45-7:00/km"},
+     rpe:"3/10", doel:"Herstel."},
+    {type:"bike", dow:"Za", date:"7/11", title:"Zone 2 Fietsen (verlaagd)",
+     runInfo:{roos:"45 min, RPE 3-4", fleur:"Samen met Roos"}, rpe:"3-4/10", doel:"Herstel."},
+    {type:"rest", dow:"Zo", date:"8/11", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin). Einde Fase 3 — analyseer de simulatie-splits: waar zit nog het gat naar 1:12?"}
+  ]
+},
+{
+  num:10, range:"9 – 15 november",
+  phase:{name:"Fase 4 — Peak", focus:"Hoge specificiteit, gecontroleerd volume. Tweede volledige simulatie als generale repetitie."},
+  days:[
+    {type:"run", dow:"Ma", date:"9/11", title:"Hardlopen — Race-pace kwaliteit",
+     runInfo:{roos:"4×1200 m @ 5:00-5:10/km, 2 min rust", fleur:"4×1200 m @ 5:15-5:25/km, 2 min rust"},
+     rpe:"8/10", doel:"Laatste harde kwaliteitsblok vóór de tweede volledige simulatie op donderdag."},
+    {type:"hyroxnorun", dow:"Di", date:"10/11", title:"HYROX zonder running — Sharpening",
+     warmup:"10 min.",
+     structNote:"Kort en kwalitatief — 3 ronden @ race-tempo, rust 2,5 min (volledig herstel tussen rondes).",
+     items:[
+       "**Wall balls** — 20 reps @ 4 kg (Fleur 3-4 kg)",
+       "**Sandbag lunges** — 40 m @ 10 kg (Fleur 8-10 kg)",
+       "**Burpees** — 12 reps"
+     ],
+     rpe:"7-8/10 per ronde, kort totaal volume", doel:"De zwakke stations voor de laatste keer technisch scherpstellen op wedstrijdtempo — kwaliteit, geen volume-opbouw meer."},
+    {type:"strength", dow:"Wo", date:"11/11", title:"Full Body Strength (minimaal, neuromusculair)",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","2×8","RPE 6-7","90 sec"],
+       ["Romanian deadlift","2×6","RPE 6-7","90 sec"],
+       ["Lat pulldown","2×6","RPE 6-7","90 sec"],
+       ["Incline bench press","2×5","RPE 6-7","90 sec"],
+       ["Shoulder press (barbell)","2×5","RPE 6-7","90 sec"]
+     ]},
+     doel:"Kracht en neuromusculaire scherpte vasthouden; lunges laten we deze week weg met het oog op de tweede simulatie."},
+    {type:"hyroxrun", dow:"Do", date:"12/11", title:"VOLLEDIGE SIMULATIE #2 — Generale repetitie",
+     warmup:"15 min, grondig, zoals op wedstrijddag.",
+     structNote:"Volledige HYROX-volgorde op wedstrijdgewichten/-afstanden, zo dicht mogelijk bij wedstrijdintensiteit. Race-kleding, race-schoenen, de stationverdeling die jullie op 29/11 willen gebruiken. Richttempo's: Roos 4:55-5:10/km, Fleur 5:15-5:30/km.",
+     items:[
+       "8×1 km run @ wedstrijdintensiteit",
+       "Alle 8 stations op wedstrijdgewicht/-volume",
+       "Race-kleding en -schoenen, geoefende transities én wisselmomenten (bovenin)",
+       "Fueling zoals gepland voor 27/29 november — test hier ook wat je tijdens de wedstrijd wil eten/drinken"
+     ],
+     fleur:"Race-pace doel 5:15-5:30/km.",
+     rpe:"9/10", doel:"Laatste grote bevestiging van fitness en uitvoering, en de laatste kans om transities en wisselmomenten te verfijnen. Vergelijk met simulatie 1 en de checkpoint-tests."},
+    {type:"run", dow:"Vr", date:"13/11", title:"Hardlopen — Herstel na simulatie",
+     runInfo:{roos:"30-35 min zeer rustig @ 6:15-6:30/km", fleur:"30-35 min zeer rustig @ 6:45-7:00/km"},
+     rpe:"3/10", doel:"Herstel."},
+    {type:"bike", dow:"Za", date:"14/11", title:"Zone 2 Fietsen",
+     runInfo:{roos:"50 min, RPE 4 — samen", fleur:"Samen met Roos"}, rpe:"4/10", doel:"Aerobe basis, laag volume."},
+    {type:"rest", dow:"Zo", date:"15/11", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin)."}
+  ]
+},
+{
+  num:11, range:"16 – 22 november",
+  phase:{name:"Fase 4 — Peak → naar taper", focus:"Scherpte behouden, geen nieuwe vermoeidheid meer opbouwen."},
+  days:[
+    {type:"run", dow:"Ma", date:"16/11", title:"Hardlopen — Korte snelheidsprikkels",
+     runInfo:{roos:"6×200 m @ 4:20-4:30/km, volledig herstel tussen (2-3 min)", fleur:"6×200 m @ 4:45-4:55/km, volledig herstel tussen (2-3 min)"},
+     rpe:"7-8/10, kort", doel:"Scherpte houden, geen vermoeidheid meer opbouwen."},
+    {type:"hyroxnorun", dow:"Di", date:"17/11", title:"HYROX zonder running — Neuromusculaire sharpening",
+     warmup:"10 min, + standaard transitie-drill (bovenin).",
+     structNote:"2 ronden van 5 korte pieken, 2 min rust tussen elke piek.",
+     items:[
+       "**Sled push** — 12,5 m @ 102 kg (max, kort)",
+       "**Wall balls** — 10 reps snel",
+       "**Burpees** — 6 reps snel",
+       "**Farmers carry** — 20 m snel"
+     ],
+     rpe:"8/10 per piek, zeer kort — totale belasting laag", doel:"Het systeem 'wakker maken' — snelheid en kracht activeren zonder vermoeidheid op te bouwen. Geen conditietraining meer."},
+    {type:"strength", dow:"Wo", date:"18/11", title:"Full Body Strength (licht)",
+     table:{headers:["Oefening","Sets×Reps","RPE/RIR","Rust"], rows:[
+       ["Hip thrust","2×8","RPE 6","90 sec"],
+       ["Lat pulldown","2×6","RPE 6","90 sec"],
+       ["Incline bench press","2×5","RPE 6","90 sec"],
+       ["Shoulder press (barbell)","2×5","RPE 6","90 sec"]
+     ]},
+     doel:"Minimaal onderhoud, richting de taperweek."},
+    {type:"hyroxrun", dow:"Do", date:"19/11", title:"HYROX + Running — Taper-touch",
+     warmup:"10 min.",
+     structNote:"3×(500 m run @ race-pace + 1 licht station), rust 2 min. Race-pace: Roos 4:55-5:05/km, Fleur 5:15-5:25/km.",
+     items:[
+       "500 m run @ race-pace → **Wall balls** 10 reps óf **Burpees** 8 reps",
+       "500 m run @ race-pace → **Wall balls** 10 reps óf **Burpees** 8 reps",
+       "500 m run @ race-pace → **Wall balls** 10 reps óf **Burpees** 8 reps"
+     ],
+     rpe:"7/10, kort", doel:"Het gevoel van compromised running op wedstrijdtempo nog één keer aanraken zonder vermoeidheid op te bouwen."},
+    {type:"run", dow:"Vr", date:"20/11", title:"Hardlopen — Zone 2 (licht)",
+     runInfo:{roos:"30 min Zone 2 @ 6:00-6:15/km, licht", fleur:"30 min Zone 2 @ 6:30-6:45/km, licht"},
+     rpe:"4/10", doel:"Onderhoud, laag volume."},
+    {type:"bike", dow:"Za", date:"21/11", title:"Zone 2 Fietsen (licht)",
+     runInfo:{roos:"40 min, RPE 3-4 — samen", fleur:"Samen met Roos"}, rpe:"3-4/10", doel:"Onderhoud."},
+    {type:"rest", dow:"Zo", date:"22/11", title:"Rust", note:"Actieve rust: desgewenst 10 min mobility-routine (bovenin)."}
+  ]
+},
+{
+  num:12, range:"23 – 29 november",
+  phase:{name:"Fase 5 — Taper & Wedstrijd", focus:"Belasting fors omlaag, scherpte behouden. HYROX Relay (27/11) bewust ingebouwd als onderdeel van de taper — geen normale trainingsdag — gevolgd door de Doubles-wedstrijd (29/11). Voeding: ma-do geleidelijk iets extra koolhydraten, wedstrijdochtenden hetzelfde ontbijt als in simulatie 2 getest, water + elektrolyten tijdens beide wedstrijden, niks nieuws proberen."},
+  days:[
+    {type:"run", dow:"Ma", date:"23/11", title:"Hardlopen — Zeer rustig",
+     runInfo:{roos:"20-25 min Zone 2 @ 6:15/km, zeer rustig + 3×20 sec losse strides", fleur:"20-25 min Zone 2 @ 6:45/km, zeer rustig + 3×20 sec losse strides"},
+     rpe:"3-4/10", doel:"Bloed laten stromen, geen enkele vermoeidheid opbouwen."},
+    {type:"hyroxnorun", dow:"Di", date:"24/11", title:"HYROX zonder running — Zeer licht",
+     warmup:"8 min.",
+     structNote:"2 ronden, laag volume. Totaal ±15 min.",
+     items:[
+       "**Wall balls** — 10 reps (licht)",
+       "**Burpees** — 8 reps",
+       "**Sandbag lunges** — 20 m (licht)"
+     ],
+     rpe:"5-6/10", doel:"Bewegingspatroon nog één keer aanraken, systeem scherp houden — geen conditieprikkel meer nodig."},
+    {type:"strength", dow:"Wo", date:"25/11", title:"Full Body — Activatie",
+     items:[
+       "**Hip thrust** (bodyweight of zeer licht) — 2×10",
+       "**Lat pulldown** (licht) — 2×10",
+       "**Mobility routine** — heupen/schouders/enkels"
+     ],
+     structNote:"Totaal 20-25 min.",
+     rpe:"4/10", doel:"Bloed laten stromen, geen enkel risico op spierpijn richting het weekend."},
+    {type:"hyroxrun", dow:"Do", date:"26/11", title:"HYROX + Running — Opener (dag vóór de Relay)",
+     structNote:"2×(300 m run @ race-tempo + 5 wall balls), rust 3 min. Race-tempo: Roos 4:55-5:05/km, Fleur 5:15-5:25/km.",
+     items:[
+       "300 m run @ race-tempo → **Wall balls** 5 reps",
+       "300 m run @ race-tempo → **Wall balls** 5 reps"
+     ],
+     rpe:"6/10, kort", doel:"Wakker maken, laatste keer wedstrijdtempo aanraken. Geen vermoeidheid."},
+    {type:"race", dow:"Vr", date:"27/11", title:"HYROX Relay",
+     raceName:"HYROX Relay",
+     raceText:"Geen trainingsvoorschrift — dit ís de belasting van de dag. Grondige, vertrouwde warming-up. Richt je direct na de finish op herstel: eten en drinken binnen 30-60 min, benen omhoog, rustige avond met het oog op zondag. Inspanningsniveau en taakverdeling bepalen jullie zelf."},
+    {type:"rest", dow:"Za", date:"28/11", title:"Herstel",
+     note:"Volledige rust, of desnoods 15-20 min zeer licht fietsen/wandelen + mobility. Focus op eten, hydratatie, slaap. Geen training."},
+    {type:"race", dow:"Zo", date:"29/11", title:"HYROX Doubles",
+     raceName:"HYROX Doubles 🎯",
+     raceText:"Vertrouwde warming-up, een ontbijt dat je al vaker vóór een training hebt gegeten. Pacing, stationverdeling en race-uitvoering bepalen jullie zelf."}
+  ]
+},
+{
+  num:13, range:"30 november – 6 december",
+  phase:{name:"Na de wedstrijd", focus:"Het schema stopt niet hard op 29 november — een bewuste afbouw is net zo belangrijk als de opbouw. Zomaar van 6× zwaar per week naar 0 is een klassieke route naar blessures of een motivatiedip na een groot doel."},
+  days:[
+    {type:"rest", dow:"Ma", date:"30/11", title:"Volledige rust", note:"Alleen wandelen/mobility als dat prettig voelt."},
+    {type:"rest", dow:"Di-Wo", date:"1-2/12", title:"Licht bewegen", note:"Wandelen, zeer rustig fietsen of zwemmen — geen structuur, geen tempo's. Luister naar het lichaam."},
+    {type:"rest", dow:"Do-Zo", date:"3-6/12", title:"Geleidelijk terug", note:"Terug richting jullie normale ritme, in eigen tempo — geen vast schema. Plan pas hierna een eventueel volgend trainingsblok."}
+  ]
+}
+];
+
+function esc(s){ return s; }
+function bold(s){ return s.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
+
+function renderLegend(){
+  const el = document.getElementById('legend');
+  el.innerHTML = Object.keys(TYPES).filter(k=>k!=='race').map(k=>{
+    const t = TYPES[k];
+    return `<span class="legend-item"><span class="dot" style="background:${t.color}"></span>${t.label}</span>`;
+  }).join('') + `<span class="legend-item"><span class="dot" style="background:var(--race)"></span>Wedstrijd</span>`;
+}
+
+function renderPills(){
+  const el = document.getElementById('pills');
+  el.innerHTML = WEEKS.map((w,i)=>`<button class="pill" data-i="${i}" data-active="${i===state.i}">W${w.num}</button>`).join('');
+  el.querySelectorAll('.pill').forEach(btn=>{
+    btn.addEventListener('click', ()=> goto(parseInt(btn.dataset.i)));
+  });
+}
+
+let progress = {};
+
+function loadProgress(){
+  try{
+    const raw = localStorage.getItem('hyrox-progress');
+    if(raw){ progress = JSON.parse(raw); }
+  }catch(e){
+    progress = {};
+  }
+}
+
+function saveProgress(){
+  try{
+    localStorage.setItem('hyrox-progress', JSON.stringify(progress));
+  }catch(e){
+    console.error('Kon voortgang niet opslaan (mogelijk privénavigatie of opslag vol):', e);
+  }
+}
+
+function isDone(date, person){
+  return !!(progress[date] && progress[date][person]);
+}
+
+function toggleDone(date, person){
+  if(!progress[date]) progress[date] = {roos:false, fleur:false};
+  progress[date][person] = !progress[date][person];
+  saveProgress();
+  renderWeek(state.i);
+}
+
+function countableDates(){
+  const dates = [];
+  WEEKS.forEach(w=>w.days.forEach(d=>{ if(d.type!=='rest') dates.push(d.date); }));
+  return dates;
+}
+
+function renderStats(){
+  const el = document.getElementById('progressStats');
+  if(!el) return;
+  const dates = countableDates();
+  let roos=0, fleur=0;
+  dates.forEach(date=>{ if(isDone(date,'roos')) roos++; if(isDone(date,'fleur')) fleur++; });
+  el.innerHTML = `<span>Totale voortgang — <b>Roos ${roos}/${dates.length}</b></span><span>&middot;</span><span><b>Fleur ${fleur}/${dates.length}</b></span>`;
+}
+
+function resetProgress(){
+  if(!confirm('Weet je zeker dat je alle afgevinkte trainingen wilt wissen? Dit kan niet ongedaan gemaakt worden.')) return;
+  progress = {};
+  saveProgress();
+  renderWeek(state.i);
+}
+
+function progressRowHTML(date){
+  const rDone = isDone(date,'roos');
+  const fDone = isDone(date,'fleur');
+  return `<div class="progress-row">
+    <button class="progress-btn ${rDone?'done':''}" data-date="${date}" data-person="roos" type="button">${rDone?'✓ ':''}Roos</button>
+    <button class="progress-btn ${fDone?'done':''}" data-date="${date}" data-person="fleur" type="button">${fDone?'✓ ':''}Fleur</button>
+  </div>`;
+}
+
+function dayCardHTML(d){
+  if(d.type === 'rest'){
+    return `<div class="day-card type-rest">
+      <div class="day-accent" style="background:${TYPES.rest.color}"></div>
+      <div class="rest-card">
+        <div class="icon">&#9698;</div>
+        <div class="day-date">${d.dow} ${d.date}</div>
+        <div class="meta-line" style="margin-top:6px;">${d.title ? bold(d.title) : 'Rust'}${d.note ? ' — ' + bold(d.note) : ''}</div>
+      </div>
+    </div>`;
+  }
+  if(d.type === 'race'){
+    const allDone = isDone(d.date,'roos') && isDone(d.date,'fleur');
+    return `<div class="day-card type-race${allDone?' all-done':''}">
+      <div class="race-card">
+        <div class="day-date2">${d.dow} ${d.date}</div>
+        <div class="race-name">${d.raceName}</div>
+        <p>${bold(d.raceText)}</p>
+        ${progressRowHTML(d.date)}
+      </div>
+    </div>`;
+  }
+  const t = TYPES[d.type];
+  let body = '';
+  if(d.warmup){ body += `<p class="meta-line"><b>Warming-up:</b> ${bold(d.warmup)}</p>`; }
+  if(d.structNote){ body += `<p class="struct-note">${bold(d.structNote)}</p>`; }
+  if(d.blocks){
+    body += d.blocks.map(blk => `<div class="block-group">
+      <span class="block-label">${bold(blk.label)}</span>
+      <ol class="items">${blk.items.map(it=>`<li>${bold(it)}</li>`).join('')}</ol>
+    </div>`).join('');
+  }
+  if(d.items){
+    body += `<ol class="items">` + d.items.map(it=>`<li>${bold(it)}</li>`).join('') + `</ol>`;
+  }
+  if(d.table){
+    body += `<table class="strength"><thead><tr>${d.table.headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>`;
+    body += d.table.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('');
+    body += `</tbody></table>`;
+  }
+  if(d.runInfo){
+    body += `<div class="run-grid">
+      <div class="run-row"><span class="run-who">Roos</span><span class="run-what">${bold(d.runInfo.roos)}</span></div>
+      <div class="run-row"><span class="run-who">Fleur</span><span class="run-what">${bold(d.runInfo.fleur)}</span></div>
+    </div>`;
+  }
+  if(d.fleur){
+    body += `<div class="fleur-note"><b>Fleur:</b> ${bold(d.fleur)}</div>`;
+  }
+  if(d.warn){
+    body += `<div class="fleur-note" style="border-color:var(--hyroxrun); background:var(--hyroxrun-bg);"><b style="color:var(--hyroxrun);">Let op:</b> ${bold(d.warn)}</div>`;
+  }
+  body += `<div class="day-footer">
+      <span class="rpe-badge">RPE ${d.rpe}</span>
+      <span class="doel-text"><b>Doel:</b> ${bold(d.doel)}</span>
+    </div>`;
+
+  const allDone = isDone(d.date,'roos') && isDone(d.date,'fleur');
+  return `<div class="day-card type-${d.type}${allDone?' all-done':''}">
+    <div class="day-accent" style="background:${t.color}"></div>
+    <div class="day-head">
+      <div class="day-date">${d.dow}<small>${d.date}</small></div>
+      <span class="type-badge" style="background:${t.bg}; color:${t.color};">${t.label}</span>
+    </div>
+    <div class="day-title">${bold(d.title)}</div>
+    ${progressRowHTML(d.date)}
+    <div class="day-body">${body}</div>
+  </div>`;
+}
+
+function weekStats(w){
+  const checkable = w.days.filter(d=>d.type!=='rest');
+  if(checkable.length === 0) return '';
+  let roos=0, fleur=0;
+  checkable.forEach(d=>{ if(isDone(d.date,'roos')) roos++; if(isDone(d.date,'fleur')) fleur++; });
+  return `Deze week — Roos ${roos}/${checkable.length} &middot; Fleur ${fleur}/${checkable.length}`;
+}
+
+function renderWeek(i){
+  const w = WEEKS[i];
+  const el = document.getElementById('weekview');
+  el.innerHTML = `
+    <div class="phase-banner">
+      <div class="ph-label">${w.num <= 12 ? `Week ${w.num} van 12` : 'Uitloop'} &middot; ${w.range}</div>
+      <div class="ph-name">${w.phase.name}</div>
+      <div class="ph-focus">${w.phase.focus}</div>
+      <div class="week-progress">${weekStats(w)}</div>
+    </div>
+  ` + w.days.map(dayCardHTML).join('') + (i===WEEKS.length-1 ? `<p class="end-note">Dit programma is een uitgangspunt, geen wet. Pas gewichten, tempo's en volume aan op basis van hoe de trainingen echt voelen en jullie WHOOP-data. Fleur's looptempo's zijn afgeleid van haar HYROX-tempo van mei — ijk dit op gevoel of met een korte tijdrit.</p>` : '');
+  window.scrollTo({top: document.querySelector('.weeknav-wrap').offsetTop - 1, behavior: 'auto'});
+  renderStats();
+}
+
+const state = { i: 0 };
+
+function goto(i){
+  state.i = Math.max(0, Math.min(WEEKS.length-1, i));
+  renderPills();
+  renderWeek(state.i);
+  document.querySelector(`.pill[data-i="${state.i}"]`)?.scrollIntoView({inline:'center', block:'nearest'});
+}
+
+document.getElementById('prevBtn').addEventListener('click', ()=> goto(state.i-1));
+document.getElementById('nextBtn').addEventListener('click', ()=> goto(state.i+1));
+document.getElementById('resetBtn').addEventListener('click', resetProgress);
+document.getElementById('weekview').addEventListener('click', function(e){
+  const btn = e.target.closest('.progress-btn');
+  if(!btn) return;
+  toggleDone(btn.dataset.date, btn.dataset.person);
+});
+
+renderLegend();
+renderPills();
+loadProgress();
+renderWeek(0);
+</script>
+</body>
+</html>

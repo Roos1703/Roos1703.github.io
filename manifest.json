@@ -1,0 +1,26 @@
+{
+  "name": "HYROX Doubles Weekschema — Roos & Fleur",
+  "short_name": "HYROX Schema",
+  "description": "12-weken trainingsschema richting HYROX Doubles, 29 november 2026.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F6F4EC",
+  "theme_color": "#211F1B",
+  "lang": "nl",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
